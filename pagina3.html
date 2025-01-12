@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta Interactiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+            background-image: url('Frieren3.jpeg'); /* Aquí puedes poner la URL de tu imagen */
+            background-size: cover; /* La imagen de fondo se ajustará al tamaño de la pantalla */
+            background-position: center; /* Centra la imagen de fondo */
+            background-attachment: fixed; /* Hace que la imagen de fondo no se mueva al hacer scroll */
+        }
+
+        /* Contenedor con fondo semi-transparente para el texto */
+        .text-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 100px; /* Ajusta la distancia desde el top si es necesario */
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+        }
+
+        .button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .button-incorrect {
+            background-color: #f44336;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #messageText {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-container">
+        <h1>Pregunta: ¿Color favorito mío?</h1>
+
+        <button class="button" onclick="checkAnswer(true)">Rojo</button>
+        <button class="button button-incorrect" onclick="checkAnswer(false)">Negro</button>
+    </div>
+
+    <div id="message" class="hidden">
+        <h2 id="messageText"></h2>
+    </div>
+
+    <script>
+        function checkAnswer(isCorrect) {
+            if (isCorrect) {
+                window.location.href = "pagina4.html"; // Redirige a la siguiente página si la respuesta es correcta
+            } else {
+                document.getElementById("message").classList.remove("hidden");
+                document.getElementById("messageText").textContent = "¡Incorrecto! Inténtalo de nuevo.";
+            }
+        }
+    </script>
+
+</body>
+</html>
